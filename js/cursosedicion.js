@@ -79,4 +79,3 @@ eliminarCursoBtn.addEventListener('click', function() {
         console.log('Operación cancelada');
     }
 });
-

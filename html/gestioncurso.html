@@ -30,27 +30,61 @@
     
     
     <!--Informacion del curso-->
-    <div class="container">
+     <!--Informacion del curso-->
+     <div class="container">
         <div class="course">
-            <h1 id="nombreCurso">Matematica</h1>
-            <h5>1012</h5>
+            <h5>Código de la temática</h5>
+            <h4 id="nombreCurso">Nombre del curso</h4>
             <h5 id="nombreVideos">Video del contenido</h5>
             <div class="fomatovideo">
                 <div class="videos1">
-                    <video width="640" height="360" controls>
-                        <source src="../recursos/PROYECTO LENGUAJE...mp4" type="video/mp4">
-                        Tu navegador no soporta la etiqueta de video.
-                      </video>
+                    <video id="videoPlayer" controls></video>
+                    <p id="descripVideo"></p>
                 </div>
             </div>
-        </div> 
-        <a href="../html/gestioncursos2.html"><button>Siguiente</button> </a>   
+        </div>  
     </div>
 
-    
+
+    <!--Formulario para editar la informacion existente-->
+    <div id="formularioEdicion" style="display: none;">
+        <div>
+            <label for="nuevoTituloCurso">Nuevo Título del Curso:</label>
+            <input type="text" id="nuevoTituloCurso">
+        </div>
+        <div>
+            <label for="nuevoNombreCurso">Nuevo Nombre del curso:</label>
+            <input type="text" id="nuevoNombreCurso">
+        </div>
+        <div>
+            <label for="nuevosVideosAsociados">Nuevos Videos Asociados:</label>
+            <input type="file" id="archivo" accept=".mp4">
+            <p id="mensaje"></p>
+            <input type="text" id="nuevosVideosAsociados">
+        </div>
+        
+    </div>
+
+
+    <!--botones de edicion-->
+    <div class="edicion">
+        <div>
+            <button onclick="editarInformacion()">Editar</button>
+        </div>
+        <div>
+            <button id="eliminarCursoBtn">Eliminar</button>
+        </div>
+        <div>
+            <button onclick="guardarEdicion()">Guardar</button>
+        </div>
+
+    </div>
+
+
         
         
 <script src="../js/cursosedicion.js"></script>
+
 
 </body>
 </html>

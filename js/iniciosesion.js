@@ -49,6 +49,12 @@ function iniciarSesion() {
         return;
     }
 
+    if (usuario === "locutor" && password === "locutor") {
+        localStorage.setItem("usuarioAutenticado", true);
+        window.location.href = "inicioinstructor.html";
+        return;
+    }
+
     // Check if the user is in the list of usuarios
     for (let i = 0; i < usuarios.length && !encontrado; i++) {
         if (usuarios[i].usuario === usuario && usuarios[i].password === password) {
