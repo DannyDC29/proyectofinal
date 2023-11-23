@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*Menu principal*/
+.nav-admin{
+    justify-content: space-around;
+    text-align: center;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+    text-align: center;
+    
+
+}
+
+.nav-section {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+.nav-section a{
+    padding: 10px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+}
+
+.nav-section:nth-child(1) {
+    background-color: #4a4a4a;
+}
+
+.nav-section:nth-child(2) {
+    background-color: #006937;
+}
+
+.nav-section:nth-child(3) {
+    background-color: #61a60e;
+}
+
+.nav-section:nth-child(4) {
+    background-color: #c2d500;
+}
+
+.nav-section:nth-child(5) {
+    background-color: rgb(255, 174, 0);
+}
+
+.nav-section a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 0;
+}
+
+
+
+/*Titulo de la pagina*/
+h1 {
+    text-align: center;
+}
+
+
+
+/*Gestion de los temas*/
+.container {
+    max-width: 960px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+
+}
+
+.course {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+h2{
+    text-align: center;
+}
+
+.course h2 {
+    color: #333;
+}
+
+.course p {
+    color: #555;
+    text-align: justify;
+}
+.precio {
+    font-weight: bold;
+    color: #008000; 
+    font-size: 1.2em; 
+}
+a{
+    font-weight: bold;
+    color: #008000;
+    font-size: 1em;
+}
+img{
+    display: block;
+     margin-left: auto;
+     margin-right: auto;
+}
+
+
+
+
+/*recuadro de añadir*/
+
+#usuarioTexto{
+    border: #f0f0f0;
+}
+

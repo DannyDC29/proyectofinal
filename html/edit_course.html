@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Curso</title>
+    <link rel="stylesheet" href="../css/tematica.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="nav-admin">
+            <img src="" data-uw-rm-alt-original="Presencial" data-uw-rm-alt="ALT">
+
+            <div class="nav-container">
+                <div style="padding-left: 50px; padding-right: 50px;padding-top: 10px; background-color: white;">
+                    <img src="../recursos/logocecar.png" alt="" width="150">
+                </div>
+                <div class="nav-section" style="font-size: 18px;">
+                    <a href="../html/inicioadmin.html"><strong>INICIO</strong></a>
+                </div>
+                <div class="nav-section" style="font-size: 18px;">
+                    <a href="../html/courses_list.html"><strong>TEMÁTICAS</strong></a>
+                </div>
+                <div class="nav-section" style="font-size: 18px;">
+                    <a href="../html/reportesFinanciers.html"><strong>REPORTES FINANCIEROS</strong></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <center>
+        <section style="background-color: white;">
+        <h2>Editar Curso</h2>
+        <form id="editarCursoForm">
+            <input type="hidden" id="cursoIndex" name="cursoIndex">
+
+            <table>
+                <tr>
+                    <td>
+                        <label for="editarTitulo"><strong>Título del Curso:</strong></label> <br><br>
+                    </td>
+                    <td>
+                        <input type="text" id="editarTitulo" name="editarTitulo" required><br><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="editarDescripcion"><strong>Descripción:</strong></label></td>
+                    <td><textarea id="editarDescripcion" name="editarDescripcion" rows="4" required></textarea><br><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="editarImagen"><strong> Imagen del Curso:</strong></label><br></td>
+                    <td><input type="file" id="editarImagen" name="editarImagen" accept="image/*"><br><br></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div id="vistaPreviaEditarImagen"></div><br>
+                    </td>
+                </tr>
+            </table>
+
+            <button type="button" onclick="guardarEdicionCurso()">Guardar Cambios</button><br><br>
+        </form>
+
+        <button><a href="courses_list.html" style="color: green;"><strong>Volver a la Lista de Cursos</strong></a></button><br><br>
+
+    </center>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var parametrosURL = new URLSearchParams(window.location.search);
+            var indiceCurso = parametrosURL.get("cursoIndex");
+
+            if (indiceCurso !== null) {
+                cargarDatosCursoParaEdicion(indiceCurso);
+            } else {
+                alert("No se proporcionó un índice de curso válido.");
+                window.location.href = "courses_list.html";
+            }
+
+            document.getElementById("editarImagen").addEventListener("change", mostrarVistaPreviaEditarImagen);
+        });
+
+        function cargarDatosCursoParaEdicion(indiceCurso) {
+            var cursos = JSON.parse(localStorage.getItem("cursos")) || [];
+
+            if (cursos[indiceCurso]) {
+                document.getElementById("cursoIndex").value = indiceCurso;
+                document.getElementById("editarTitulo").value = cursos[indiceCurso].titulo;
+                document.getElementById("editarDescripcion").value = cursos[indiceCurso].descripcion;
+
+                // Mostrar la imagen actual del curso para editar
+                var vistaPreviaEditarImagen = document.getElementById("vistaPreviaEditarImagen");
+                vistaPreviaEditarImagen.innerHTML = '<img src="' + cursos[indiceCurso].imagen + '" alt="Imagen Actual del Curso">';
+            } else {
+                alert("No se encontró el curso para editar.");
+                window.location.href = "courses_list.html";
+            }
+        }
+
+        function mostrarVistaPreviaEditarImagen() {
+            var editarImagenInput = document.getElementById("editarImagen");
+            var vistaPreviaEditarImagen = document.getElementById("vistaPreviaEditarImagen");
+
+            if (editarImagenInput.files && editarImagenInput.files[0]) {
+                var lector = new FileReader();
+
+                lector.onload = function (e) {
+                    vistaPreviaEditarImagen.innerHTML = '<img src="' + e.target.result + '" alt="Vista Previa de la Imagen">';
+                };
+
+                lector.readAsDataURL(editarImagenInput.files[0]);
+            } else {
+                vistaPreviaEditarImagen.innerHTML = "";
+            }
+        }
+
+        function guardarEdicionCurso() {
+            var indiceCurso = document.getElementById("cursoIndex").value;
+            var editarTitulo = document.getElementById("editarTitulo").value;
+            var editarDescripcion = document.getElementById("editarDescripcion").value;
+            var editarImagenInput = document.getElementById("editarImagen");
+
+            var cursos = JSON.parse(localStorage.getItem("cursos")) || [];
+
+            if (cursos[indiceCurso]) {
+                cursos[indiceCurso].titulo = editarTitulo;
+                cursos[indiceCurso].descripcion = editarDescripcion;
+
+                if (editarImagenInput.files && editarImagenInput.files[0]) {
+                    var lector = new FileReader();
+                    lector.onload = function (e) {
+                        cursos[indiceCurso].imagen = e.target.result;
+                    };
+                    lector.readAsDataURL(editarImagenInput.files[0]);
+                }
+
+                localStorage.setItem("cursos", JSON.stringify(cursos));
+
+                alert("Curso editado con éxito.");
+                window.location.href = "courses_list.html";
+            } else {
+                alert("No se encontró el curso para editar.");
+                window.location.href = "courses_list.html";
+            }
+        }
+    </script>
+
+    </section>
+
+</body>
+
+</html>

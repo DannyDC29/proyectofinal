@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educecar - Gestión de cursos</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../css/reportesFinancieros.css">
+
+    
+</head>
+<body>
+    <header>
+        <nav class="nav-admin">
+            <img src="" data-uw-rm-alt-original="Presencial" data-uw-rm-alt="ALT">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="../recursos/logocecar.png" alt="Logo" width="200">
+                </div>
+                <div class="nav-section">
+                    <a href="../html/inicioadministrador.html"><strong>INICIO</strong></a>
+                </div>
+        
+                <div class="nav-section">
+                    <a href="../html/tematicaadmin.html"><strong> TEMÁTICA</strong></a>
+                </div>
+                <div class="nav-section">
+                    <a href="../html/cursosadmin.html"><strong>GESTIÓN DE CURSOS</strong></a>
+                </div>
+                <div class="nav-section">
+                    <a href="../html/reportesFinancieros.html"><strong>REPORTES FINANCIEROS</strong></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <form id="report-form">
+        <div class="input-container">
+            <label for="month">Elegir mes:</label>
+            <select name="month" id="month">
+
+            </select>
+        </div>
+        <div class="button-container">
+            <button type="submit">Generar reporte</button>
+        </div>
+        <br><br>
+    </form>
+    <table id="report-table">
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>Precio</th>
+                <th>Total de ventas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se deben agregar las filas de cursos -->
+        </tbody>
+    </table>
+
+
+    <h2>Gráfico de Barras</h2>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="../js/reportesfinanciero.js">
+       
+    </script>
+</body>
+</html>

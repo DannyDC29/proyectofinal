@@ -1,0 +1,75 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(45deg, #ffcc00, #ff3300);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    color: #fff;
+    font-size: 48px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 20px;
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    max-width: 400px;
+}
+
+p {
+    font-weight: bold;
+    color: #333;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+    transform: scale(1.5);
+}
+
+input[type="button"] {
+    background: linear-gradient(45deg, #ff3333, #ffcc00);
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+input[type="button"]:hover {
+    background: linear-gradient(45deg, #ffcc00, #ff3333);
+    transform: scale(1.05);
+}
+
+#resultado {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 28px;
+    color: #ffcc00;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}

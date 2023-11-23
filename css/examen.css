@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    color: black;
+    text-align: center;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+    text-align: center;
+}
+
+.nav-section {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+.nav-section:nth-child(1) {
+    border: #006937 solid;
+}
+
+.nav-section:nth-child(2) {
+    background-color: #006937;
+}
+
+.nav-section:nth-child(3) {
+    background-color: #61a60e;
+}
+
+.nav-section:nth-child(4) {
+    background-color: #c2d500;
+}
+
+.nav-section a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.container {
+    width: 80%; /* Ancho del contenedor */
+    margin: 0 auto; /* Centrar horizontalmente */
+    text-align: justify; /* Justificar el texto */
+    padding: 20px; /* Añadir espaciado interno para mejor visualización */
+    box-sizing: border-box; /* Incluir relleno en el ancho total */
+}
+
+.container-info {
+    width: 80%; /* Ancho del contenedor */
+    margin: 0 auto; /* Centrar horizontalmente */
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: justify; /* Justificar el texto */
+    padding: 20px; /* Añadir espaciado interno para mejor visualización */
+    box-sizing: border-box; /* Incluir relleno en el ancho total */
+    border: rgb(182, 182, 182) solid;
+    background-color: rgb(228, 228, 228);
+}
+
+.container label {
+    display: block; /* Mostrar cada respuesta como un bloque */
+    margin-bottom: 10px; /* Agregar espaciado entre respuestas */
+}
+
+/* Estilos para el botón de calificar */
+#calificarButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #006937;
+    background-color: #006937;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#calificarButton:hover {
+    background-color: #006937;
+    border-color: #006937;
+}

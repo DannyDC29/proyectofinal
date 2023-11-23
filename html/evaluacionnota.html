@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/examen.css">
+    <style>
+        /* Estilos para el recuadro del puntaje */
+        #puntaje {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-container" style="background-color: white;">
+        <div class="logo">
+            <img src="../recursos/logocecar.png" alt="Logo">
+        </div>
+
+        <div class="menu">
+            <div class="nav-section">
+                <a href="../html/inicioestudiante.html"><strong>INICIO</strong></a>
+            </div>
+
+ 
+            <div class="nav-section">
+                <a href="../html/cursosalum.html"><strong>MIS CURSOS</strong></a>
+
+            </div>
+            <div class="nav-section">
+                <a href="#"><strong>PROGRESO</strong></a>
+            </div>
+        </div>
+    </div>
+    
+
+        <div class="container-info">
+            <p>El puntaje máximo que un estudiante puede obtener en la prueba es de <b>5 puntos</b>; correspondiendo a un desempeño <b>excelente</b> y completo en todas las preguntas. El puntaje máximo para aprobar se establece en <b>3 puntos</b>, lo que indica un nivel adecuado de conocimiento y comprensión del tema evaluado.</p>
+        </div>
+
+        <div id="mensaje">
+            <!-- El mensaje se mostrará aquí -->
+        </div>
+        
+        <div id="puntaje">
+            <!-- El puntaje se mostrará aquí -->
+        </div>
+    
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const params = new URLSearchParams(window.location.search);
+                const puntaje = parseInt(params.get('puntaje'));
+    
+                const mensajeDiv = document.getElementById('mensaje');
+                const puntajeDiv = document.getElementById('puntaje');
+    
+                if (puntaje === 5) {
+                    mensajeDiv.textContent = '¡Felicidades por obtener un puntaje excelente!';
+                } else if (puntaje >= 3) {
+                    mensajeDiv.textContent = '¡Has aprobado el curso!';
+                } else {
+                    mensajeDiv.textContent = 'Has reprobado el curso. ¡Ánimo para la próxima!';
+                }
+    
+                // Mostrar el puntaje obtenido
+                puntajeDiv.textContent = `Puntaje obtenido: ${puntaje} puntos`;
+            });
+        </script>
+    </nav>
